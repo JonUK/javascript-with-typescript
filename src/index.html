@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Word Count</title>
+</head>
+<body class="bg-light">
+
+<div class="container">
+    <div class="py-5 text-center">
+        <h1>Word count</h1>
+        <p class="lead">Enter text below to see a count of characters and words</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form class="needs-validation" novalidate>
+                <label for="text-input" class="h2 mb-3">Text</label>
+                <div class="form-group">
+                    <textarea id="text-input" class="form-control" aria-labelledby="text-heading" rows="6"></textarea>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-4 mb-4">
+            <h2 class="mb-3">
+                <span>Stats</span>
+            </h2>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>Character count</div>
+                    <span id="character-count">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>Word count</div>
+                    <span id="word-count">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>Longest word</div>
+                    <span id="max-word-length">0</span>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
