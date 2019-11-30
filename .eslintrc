@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "google"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "browser": true,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "require-jsdoc": "off",
+    "comma-dangle": ["error", "never"],
+    "object-curly-spacing": ["error", "always"]
+  }
+}

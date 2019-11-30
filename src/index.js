@@ -1,21 +1,22 @@
-import 'bootstrap';
+// import 'bootstrap'; // Not using any of the Bootstrap JS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const whitespaceRegex = /\s+/gi;
 
 const textInput = document.getElementById('text-input');
+textInput.focus();
+
 const characterCountElement = document.getElementById('character-count');
 const wordCountElement = document.getElementById('word-count');
 const maxWordLengthElement = document.getElementById('max-word-length');
 
 const eventsNames = ['change', 'keyup'];
 
-eventsNames.forEach(eventName => {
+eventsNames.forEach((eventName) => {
   textInput.addEventListener(eventName, calculateCounts);
 });
 
 function calculateCounts() {
-
   const text = textInput.value;
 
   let wordCount = 0;
@@ -30,7 +31,7 @@ function calculateCounts() {
 }
 
 function findLongestWord(str) {
-  const stringArray = str.split(" ");
+  const stringArray = str.split(' ');
   const longestWord = stringArray.reduce((a, b) => {
     return (b.length > a.length) ? b : a;
   });
