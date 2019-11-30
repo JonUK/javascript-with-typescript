@@ -1,15 +1,17 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
     app: './src/index.js'
   },
-  devtool: 'source-map',
+  devtool: 'source-map', // Generate separate source map files
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    overlay: true // Show errors in overlay on the website
   },
   module: {
     rules: [
@@ -36,7 +38,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          MiniCssExtractPlugin.loader, // Outputs CSS to file
+          'css-loader'
+        ]
       }
     ]
   },
@@ -44,7 +49,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    })
+    }),
+    new MiniCssExtractPlugin()
   ],
   output: {
     filename: '[name].bundle.js',

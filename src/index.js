@@ -1,15 +1,19 @@
-// import 'bootstrap'; // Not using any of the Bootstrap JS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const whitespaceRegex = /\s+/gi;
+// Import the different calculators
+import characterCountCalculator from './characterCountCalculator';
+import wordCountCalculator from './wordCountCalculator';
+import longestWordCalculator from './longestWordCalculator';
 
+// Get a reference to all the DOM elements
 const textInput = document.getElementById('text-input');
-textInput.focus();
-
 const characterCountElement = document.getElementById('character-count');
 const wordCountElement = document.getElementById('word-count');
-const maxWordLengthElement = document.getElementById('max-word-length');
+const longestWordElement = document.getElementById('longest-word');
 
+textInput.focus(); // Set the textarea to have focus onload
+
+// Register the function calculateCounts to be called when textarea events fire
 const eventsNames = ['change', 'keyup'];
 
 eventsNames.forEach((eventName) => {
@@ -19,21 +23,7 @@ eventsNames.forEach((eventName) => {
 function calculateCounts() {
   const text = textInput.value;
 
-  let wordCount = 0;
-
-  if (text.length > 0) {
-    wordCount = text.trim().replace(whitespaceRegex, ' ').split(' ').length;
-  }
-
-  characterCountElement.textContent = text.length;
-  wordCountElement.textContent = wordCount;
-  maxWordLengthElement.textContent = findLongestWord(text);
-}
-
-function findLongestWord(str) {
-  const stringArray = str.split(' ');
-  const longestWord = stringArray.reduce((a, b) => {
-    return (b.length > a.length) ? b : a;
-  });
-  return longestWord.length;
+  characterCountElement.textContent = characterCountCalculator.calculate(text);
+  wordCountElement.textContent = wordCountCalculator.calculate(text);
+  longestWordElement.textContent = longestWordCalculator.calculate(text);
 }
