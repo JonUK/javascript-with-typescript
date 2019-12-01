@@ -2,7 +2,7 @@
 An example of how to use webpack with Babel to start using TypeScript within an existing JavaScript project.
 
 
-The following article accompanies this repo.
+The following article accompanies this repo.<br />
 https://keepinguptodate.com/pages/2019/12/gradually-migrating-to-typescript/
 
 ## Screenshot of word count example webpage
