@@ -17,7 +17,7 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
@@ -27,7 +27,7 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
@@ -47,6 +47,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin()
   ],
+  resolve: {
+    extensions: ['.js', '.ts']
+  },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')

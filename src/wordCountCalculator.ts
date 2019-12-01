@@ -1,5 +1,5 @@
 class WordCountCalculator {
-  static calculate(text) {
+  static calculate(text: string): number {
     const localText = text.trim();
 
     if (localText.length === 0) {
